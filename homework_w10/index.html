@@ -19,7 +19,7 @@
 <div id="choropleth_map"></div>
 
 <h2>Interactive Bubbleplot from Week 10</h2>
-<div id="bubble_plot"></div>
+<div id="scatter_plot"></div>
 
 <script type="text/javascript">
   
@@ -31,7 +31,7 @@
   
   var vis2 = "https://raw.githubusercontent.com/euyangchai/FIT3179/main/homework_w10/interactive_bubbleplot.json";
   
-  vegaEmbed('#bubble_plot', vis2).then(function(result) {
+  vegaEmbed('#scatter_plot', vis2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
