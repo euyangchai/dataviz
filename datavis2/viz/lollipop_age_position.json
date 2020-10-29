@@ -2,7 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "height": 300,
   "width": 600,
-  "title": "Age Distribution of FIFA 19 Players per Position",
   "data": {
     "url": "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/data/fifa_position_age_2.csv"
   },
@@ -17,16 +16,17 @@
     "y": {
       "field": "Position",
       "type": "nominal",
-      "title": "Player Position",
+      "title": null,
       "axis": {"offset": 5, "ticks": false, "minExtent": 70, "domain": false}
     }
+
   },
   "layer": [
     {
       "mark": "line",
       "encoding": {
         "detail": {"field": "Position", "type": "nominal"},
-        "color": {"value": "#f6abb6"},
+        "color": {"value": "#4E4E50"},
         "size": {"value": 8}
       }
     },
@@ -38,11 +38,11 @@
           "type": "nominal",
           "scale": {
             "domain": ["min", "most", "max"],
-            "range": ["#6497b1", "#03396c", "#005b96"]
+            "range": ["#6497b1", "#F64C72", "#005b96"]
           },
-          "title": "Age"
+          "legend": null
         },
-        "size": {"value": 1000},
+        "size": {"value": 800},
         "opacity": {"value": 1},
         "tooltip": [
           {"field": "Position", "type": "nominal"},
@@ -51,5 +51,20 @@
       }
     }
   ],
-  "config": {}
+
+  "config": {
+    "background": "#1A1A1D",
+    "axis": {
+      "labelPadding": 10,
+      "labelColor": "#C5C6C7",
+      "labelFontSize": 15,
+      "labelFont": "Sans-Serif",
+      "titleColor": "#C5C6C7",
+      "titleFontSize": 15,
+      "gridOpacity": 0.1
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  }
 }
