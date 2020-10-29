@@ -38,7 +38,7 @@
     ]
   },
   "config": {
-    "background": "#1A1A1D"
+    "background": "#1A1A1D",
     "view": {
        "stroke": "transparent"
   }
