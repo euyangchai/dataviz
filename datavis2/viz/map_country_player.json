@@ -20,22 +20,24 @@
     },
     {"calculate": "datum.Name + 0.1", "as": "Number of Players"}
   ],
-  "mark": {"type": "geoshape"},
+  "mark": {"type": "geoshape", "stroke": "lightgray"},
   "encoding": {
     "color": {
       "field": "Number of Players",
       "type": "quantitative",
       "title": "Number of Players",
       "scale": {
-        "type": "threshold",
-        "domain": [100, 500, 800, 1000],
-        "range": ["#f1eef6", "#bdc9e1", "#74a9cf", "#2b8cbe", "#045a8d"]
-      }
+        "type": "log",
+        "scheme": "tealblues"      
+      },
+    "legend": null
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
       {"field": "Name", "type": "quantitative", "title": "Number of Players"}
     ]
   },
-  "config": {}
+  "config": {
+    "background": "#1A1A1D"
+  }
 }
