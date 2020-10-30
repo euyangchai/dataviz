@@ -1,13 +1,25 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "Drag a rectangular brush to show (first 10) selected points in a table.",
-  "title": "Scatter Plot of Rating against Weekly Wage",
   "data": {
     "url": "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/data/fifa_cleaned.csv"
   },
+  "params": [
+    {
+      "name": "Player_Rating_Above",
+      "value": 60,
+      "bind": {
+        "input": "range",
+        "min": 60,
+        "max": 100,
+        "step": 1,
+        "name": "Minimum Rating"
+      }
+    }
+  ],
   "transform": [
     {"window": [{"op": "row_number", "as": "row_number"}]},
-    {"filter": "datum.Overall > 60"},
+    {"filter": "datum.Overall > Player_Rating_Above"},
     {"filter": "datum.Wage > 10000"}
   ],
   "hconcat": [
@@ -68,5 +80,32 @@
     }
   ],
   "resolve": {"legend": {"color": "independent"}},
-  "config": {}
+  "config": {
+    "background": "#1A1A1D",
+    "axis": {
+      "labelPadding": 10,
+      "labelColor": "#C5C6C7",
+      "labelFontSize": 15,
+      "labelFont": "Sans-Serif",
+      "titleColor": "#C5C6C7",
+      "titleFontSize": 15,
+      "titlePadding": 10,
+      "grid": false
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "text": {
+      "color": "#C5C6C7",
+      "fontSize": 15
+    },
+    "legend": {
+      "labelColor": "#C5C6C7",
+      "titleColor": "#C5C6C7"
+    },
+    "title": {
+      "color": "#C5C6C7",
+      "fontSize": 18
+    }
+  }
 }
