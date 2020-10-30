@@ -26,6 +26,8 @@
     {
       "selection": {"brush": {"type": "interval"}},
       "mark": {"type": "point", "shape": "square", "filled": true},
+      "height": 300,
+      "width": 300,
       "encoding": {
         "x": {
           "field": "Overall",
@@ -53,6 +55,7 @@
           "width": 100,
           "title": "Player Name",
           "mark": "text",
+          "height": 300,
           "encoding": {
             "text": {"field": "Name", "type": "nominal"},
             "y": {"field": "row_number", "type": "ordinal", "axis": null}
@@ -62,6 +65,7 @@
           "width": 50,
           "title": "Rating (out of 100)",
           "mark": "text",
+          "height": 300,
           "encoding": {
             "text": {"field": "Overall", "type": "nominal"},
             "y": {"field": "row_number", "type": "ordinal", "axis": null}
@@ -71,6 +75,7 @@
           "width": 50,
           "title": "Weekly Wage (€)",
           "mark": "text",
+          "height": 300,
           "encoding": {
             "text": {"field": "Wage", "type": "nominal", "format": ","},
             "y": {"field": "row_number", "type": "ordinal", "axis": null}
@@ -101,7 +106,8 @@
     },
     "legend": {
       "labelColor": "#C5C6C7",
-      "titleColor": "#C5C6C7"
+      "titleColor": "#C5C6C7",
+      "labelFontSize": 13
     },
     "title": {
       "color": "#C5C6C7",
