@@ -38,7 +38,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["min", "most", "max"],
-            "range": ["#6497b1", "#F64C72", "#005b96"]
+            "range": ["#97CAEF", "#F64C72", "#3FEEE6"]
           },
           "legend": null
         },
