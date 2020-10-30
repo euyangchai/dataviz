@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "height": 300,
-  "width": 500,
+  "width": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/data/fifa_position_age_2.csv"
   },
