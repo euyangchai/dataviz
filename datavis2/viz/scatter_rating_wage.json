@@ -15,16 +15,46 @@
         "step": 1,
         "name": "Minimum Rating"
       }
+    },
+    {
+      "name": "Position_Selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Attacker",
+          "Midfielder",
+          "Defender",
+          "Goalkeeper"
+        ],
+        "labels": [
+          "Show All",
+          "Attacker",
+          "Midfielder",
+          "Defender",
+          "Goalkeeper"
+        ],
+        "name": "Select Position: "
+      }
     }
   ],
   "transform": [
     {"window": [{"op": "row_number", "as": "row_number"}]},
     {"filter": "datum.Overall > Player_Rating_Above"},
-    {"filter": "datum.Wage > 10000"}
+    {"filter": "datum.Wage > 10000"},
+    {"filter": "Position_Selection == null || datum.Position == Position_Selection"}
   ],
+
   "hconcat": [
     {
-      "selection": {"brush": {"type": "interval"}},
+      "selection": {
+        "brush": {"type": "interval"},
+        "Position_highlight": {
+          "type": "multi",
+          "fields": ["Position"],
+          "bind": "legend"
+        }
+        },
       "mark": {"type": "point", "shape": "square", "filled": true},
       "height": 300,
       "width": 300,
@@ -41,7 +71,11 @@
           "axis": {"format": ".1s"},
           "title": "Wage per Week (€)"
         },
-        "color": {"field": "Position", "type": "nominal"}
+        "color": {"field": "Position", "type": "nominal"},
+        "opacity": {
+          "condition": {"selection": "Position_highlight", "value": 1},
+          "value": 0.1
+        }
       }
     },
     {
