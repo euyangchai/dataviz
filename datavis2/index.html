@@ -1,6 +1,318 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <p> HELLO WORLD </p>
-</head>
+    <head>
+        <!-- Import Vega and Vega-Lite-->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+        <!-- Import vega-embed -->
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+        <!-- Import pure.css -->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">        
+        <!-- custom style -->
+        <style>
+            *{
+            font-family: 'Quicksand', sans-serif;
+            }
+            h1{
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                font-size: 50;
+                color: #F6F6F6;
+                margin-top: -15px;
+            }
+            h2, i {
+                font-weight: 500;
+                font-family: 'Quicksand', sans-serif;
+                font-size: 25;
+                color: #D9D9D9;
+            }
+            h3{
+                margin-top: -20px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                font-size: 18;
+                color: #d9d9d9e0;
+            }
+            body{
+                background-color: #1A1A1D;
+            }
+            .page{
+                width: 75%;    
+                background-color: #1A1A1D;   
+                margin: auto;
+                padding: 10%;
+                padding-top: 30px;
+            }
+            .vis-mid-container{
+                padding-top: 30px;
+                padding-left: 5%;
+            }
+            .vis-right-container{
+                margin-left: 10%;
+                margin-right: 0%;
+            }
+            .vis-left-container{
+                margin-top: 30px;
+                margin-right: 10%;
+                margin-left: 0%;
+            }
+            .description-right {
+                padding-left: 20px;
+            }
+            .description-left{
+                padding-right: 20px;
+            }
+            .pure-g{
+                margin-bottom: 25px;
+            }
+            img{
+                width: 100%;
+                border-radius: 2px;
+
+            }
+            a{
+                color: lightskyblue;
+                font-family: 'Montserrat', sans-serif;
+                text-decoration: none;
+            }
+
+            /* slider */
+            .vega-bind-name{
+                color: honeydew;
+            }
+            input{
+                margin-left: 20px;
+            }
+            select{
+                margin-left: 25px;
+            }
+            span{
+                margin-left: 20px;
+                color: honeydew;
+            }
+
+            /* tooltip */
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                border-bottom: 3px dotted grey;
+            }
+
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 400px;
+                background-color: black;
+                color: #fff;
+                font-size: 15;
+                text-align: left;
+                border-radius: 6px;
+                padding: 10px;
+                position: absolute;
+                z-index: 1;
+                top: 100%;
+                left: 50%;
+                margin-left: -60px;
+                
+                /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+                opacity: 0;
+                transition: opacity 1s;
+            }
+
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            /* text color */
+            .blueText{
+                white-space: nowrap;
+                color: #97CAEF;
+            }
+            .redText{
+                color: #F64C72;
+            }
+            .greenText{
+                color: #3FEEE6;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80", alt="fifa image", height="120%">
+
+        <div class="page">
+
+            <!-- title -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <h1>
+                        Football: The Beautiful Game
+                    </h1>
+                    <h3>
+                        by <a href="https://github.com/euyangchai" target="_blank">Eu Yang Chai</a> | Oct 30 | 3 min read
+                    </h3>
+                </div>
+            </div>
+            <!-- end grid -->
+
+            <!-- first viz group -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <h2>
+                        FIFA, an abreviation for <i>Fédération Internationale de Football Association</i>, is the highest governing body of football. 
+                        It is also a world renowned term considering football being the most popular and most watched sports in the world.
+                        The figure below shows the distribution of FIFA 2019 players on a world map. 
+                        It appears that England holds the highest number of players followed by Germany and Spain.
+                    </h2>
+                    <div id="map" class="vis-mid-container"></div>
+                </div>
+            </div>
+            <!-- end grid -->
+
+            <!-- second viz group -->
+            <div class="pure-g">
+                <div class="pure-u-1-3">
+                    <div class="description-left">
+                            <h2>There are 4 main positions in football: Attacker, Midfielder, Defender and Goalkeeper.</h2>
+                            <h2>Here we look at the</h2>
+                            <h2>
+                                <span class="blueText">youngest</span><span class="redText">common</span><span class="greenText">oldest</span>
+                            </h2>
+                            <h2>age of players from each positions. It is shown that <i>Defenders</i> are more senior than any other positions.</h2>
+                        
+                    </div>
+                </div>
+                <div class="pure-u-2-3">
+                    <div id="lollipop" class="vis-right-container"></div>
+                </div>
+            </div>
+            <!-- end grid -->
+
+            <!-- third viz group -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <h2>
+                        Football is also the fifth highest paid sports in the World. According to <a href="https://www.forbes.com/athletes/#17fa5f955ae5" target="_blank">Forbes Top 20 Highest Paid Athletes</a>, 3 out of 20 athletes are football players
+                        and are ranked <i>second</i>, <i>third</i> and <i>fourth</i>. The 
+                        <div class="tooltip">interactive
+                            <span class="tooltiptext">
+                                * CLICK and DRAG to highlight a region and show first 5 selected points in a table.
+                            </span>
+                        </div> 
+                        chart below shows the player rating against weekly wage.
+                    </h2>
+                    <div id="scatter" class="vis-mid-container"></div>
+                </div>
+            </div>
+            <!-- end grid -->
+
+            <!-- fourth viz -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <h2>
+                        English Premier League (EPL) is the top level of the English football league system. It is contested by 20 clubs and operates on a system of promotion and 
+                        relegation. The Premier League is the <b><i>most-watched</i></b> sports league in the world, broadcasted to <i>643 million</i> homes and a TV audience of <i>4.7 billion</i> people.
+                    </h2>
+                </div>
+                <div class="pure-u-2-3">
+                    <div id="stacked_bar" class="vis-left-container"></div>
+                </div>
+                <div class="pure-u-1-3">
+                    <h2>
+                        Top 10 teams of the 2019-20 Premier League season and the team's average rating for each position.
+                    </h2>
+                    <h2>
+                        &nbsp;
+                    </h2>
+                    <h2>     
+                        Liverpool came above Manchester City, the defending champion, and won their first league title since 1990.
+                    </h2>
+                </div>
+            </div>
+            <!-- end grid -->
+
+            <img src="https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/pics/manchester_derby.jpeg", alt="derby image", height="30%">
+
+            <!-- fifth viz -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <h2>
+                        The Manchester derby is one of the most fiercely contested games in the world. It's a fixture between Manchester United and Manchester City
+                        that's been filled with drama and goals. Out of the 182 matches, United won 76, City won 54 and the remaining 52 is drawn. The charts below
+                        shows the comparison of the skills for each position of the two teams.
+                    </h2>
+                </div>
+                <div class="pure-u-1-2">
+                    <h2>Attack Rating</h2>
+                    <div id="radar_attack" class="vis-mid-container"></div>
+                </div>
+                <div class="pure-u-1-2">
+                    <h2>Midfield Rating</h2>
+                    <div id="radar_midfield" class="vis-mid-container"></div>
+                </div>
+            </div>
+
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <h2>Defense Rating</h2>
+                    <div id="radar_defense" class="vis-mid-container"></div>
+                </div>
+                <div class="pure-u-1-2">
+                    <h2>Goalkeeper Rating</h2>
+                    <div id="radar_gk" class="vis-mid-container"></div>
+                </div>
+            </div>
+            <!-- end grid -->
+
+
+        </div><!-- end page -->
+
+        <script type="text/javascript">
+            var specVis1 = "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/viz/map_country_player.json";
+            var specVis2 = "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/viz/lollipop_age_position.json";
+            var specVis3 = "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/viz/scatter_rating_wage.json";
+            var specVis4 = "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/viz/stacked_prem_pos_rating.json";
+            var specVis5 = "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/viz/radar_attacker_rating.json";
+            var specVis6 = "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/viz/radar_midfield_rating.json";
+            var specVis7 = "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/viz/radar_defender_rating.json";
+            var specVis8 = "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/viz/radar_goalkeeper_rating.json";
+
+          
+            vegaEmbed('#map', specVis1, {"actions": false}).then(function(result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            vegaEmbed('#lollipop', specVis2, {"actions": false}).then(function(result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            vegaEmbed('#scatter', specVis3, {"actions": false}).then(function(result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            vegaEmbed('#stacked_bar', specVis4, {"actions": false}).then(function(result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            vegaEmbed('#radar_attack', specVis5, {"actions": false}).then(function(result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            vegaEmbed('#radar_midfield', specVis6, {"actions": false}).then(function(result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            vegaEmbed('#radar_defense', specVis7, {"actions": false}).then(function(result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            vegaEmbed('#radar_gk', specVis8, {"actions": false}).then(function(result) {
+              // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+        </script>
+    </body>
 </html>
