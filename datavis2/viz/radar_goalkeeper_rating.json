@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "A radar chart example, showing multiple dimensions in a radial layout.",
-  "title": {"text": "Midfielder Rating", "align": "right", "dy": -10},
   "width": 400,
   "height": 400,
   "padding": 50,
@@ -11,16 +10,16 @@
     {
       "name": "table",
       "values": [
-        {"key": "LongPassing", "value": 71.2, "category": 1},
-        {"key": "ShortPassing", "value": 77.1, "category": 1},
-        {"key": "Positioning", "value": 73.4, "category": 1},
-        {"key": "Dribbling", "value": 76.7, "category": 1},
-        {"key": "Composure", "value": 76.1, "category": 1},
-        {"key": "LongPassing", "value": 69, "category": 0},
-        {"key": "ShortPassing", "value": 76.6, "category": 0},
-        {"key": "Positioning", "value": 71.6, "category": 0},
-        {"key": "Dribbling", "value": 77.6, "category": 0},
-        {"key": "Composure", "value": 72.6, "category": 0}
+        {"key": "Diving", "value": 80.7, "category": 1},
+        {"key": "Handling", "value": 77.7, "category": 1},
+        {"key": "Kicking", "value": 80.7, "category": 1},
+        {"key": "Positioning", "value": 79.7, "category": 1},
+        {"key": "Reflexes", "value": 84, "category": 1},
+        {"key": "Diving", "value": 69.8, "category": 0},
+        {"key": "Handling", "value": 67.5, "category": 0},
+        {"key": "Kicking", "value": 72.5, "category": 0},
+        {"key": "Positioning", "value": 66.5, "category": 0},
+        {"key": "Reflexes", "value": 71.5, "category": 0}
       ]
     },
     {
@@ -94,7 +93,7 @@
               "text": {"signal": "datum.datum.value"},
               "align": {"value": "center"},
               "baseline": {"value": "middle"},
-              "fill": {"value": "black"}
+              "fill": {"value": "white"}
             }
           }
         }
@@ -138,7 +137,7 @@
             {"test": "scale('angular', datum.key) == 0", "value": "middle"},
             {"value": "bottom"}
           ],
-          "fill": {"value": "black"},
+          "fill": {"value": "#C5C6C7"},
           "fontWeight": {"value": "bolder"}
         }
       }
@@ -158,5 +157,10 @@
       }
     }
   ],
-  "config": {}
+  "config": {
+    "background": "#1A1A1D",
+    "view": {
+      "stroke": "transparent"
+    }
+  }
 }
