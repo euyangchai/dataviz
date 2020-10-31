@@ -72,5 +72,25 @@
       }
     }
   ],
-  "config": {}
+  "config": {
+    "background": "#1A1A1D",
+    "axis": {
+      "labelPadding": 10,
+      "labelColor": "#C5C6C7",
+      "labelFontSize": 14,
+      "labelFont": "Sans-Serif",
+      "titleColor": "#C5C6C7",
+      "titleFontSize": 15,
+      "gridOpacity": 0.1
+    },
+    "legend": {
+      "labelColor": "#C5C6C7",
+      "labelFontSize": 14,
+      "titleColor": "#C5C6C7",
+      "titleFontSize": 16
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  }
 }
