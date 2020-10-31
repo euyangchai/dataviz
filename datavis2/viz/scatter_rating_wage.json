@@ -57,7 +57,7 @@
         },
       "mark": {"type": "point", "shape": "square", "filled": true},
       "height": 300,
-      "width": 450,
+      "width": 750,
       "encoding": {
         "x": {
           "field": "Overall",
