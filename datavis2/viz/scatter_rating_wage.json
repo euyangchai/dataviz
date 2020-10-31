@@ -77,7 +77,7 @@
           "mark": "text",
           "height": 300,
           "encoding": {
-            "text": {"field": "Wage", "type": "nominal", "format": ","},
+            "text": {"field": "Wage", "type": "nominal", "format": ".1s"},
             "y": {"field": "row_number", "type": "ordinal", "axis": null}
           }
         }
