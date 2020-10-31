@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/euyangchai/FIT3179/main/datavis2/data/fifa_prem_league.csv"
   },
-  "height": 300,
+  "height": 350,
   "width": 400,
   "encoding": {
     "x": {
