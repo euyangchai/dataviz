@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "A radar chart example, showing multiple dimensions in a radial layout.",
-  "title": {"text": "Midfielder Rating", "align": "right", "dy": -10},
   "width": 400,
   "height": 400,
   "padding": 50,
@@ -94,7 +93,7 @@
               "text": {"signal": "datum.datum.value"},
               "align": {"value": "center"},
               "baseline": {"value": "middle"},
-              "fill": {"value": "black"}
+              "fill": {"value": "white"}
             }
           }
         }
@@ -138,7 +137,7 @@
             {"test": "scale('angular', datum.key) == 0", "value": "middle"},
             {"value": "bottom"}
           ],
-          "fill": {"value": "black"},
+          "fill": {"value": "#C5C6C7"},
           "fontWeight": {"value": "bolder"}
         }
       }
@@ -158,5 +157,10 @@
       }
     }
   ],
-  "config": {}
+  "config": {
+    "background": "#1A1A1D",
+    "view": {
+      "stroke": "transparent"
+    }
+  }
 }
