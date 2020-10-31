@@ -141,7 +141,8 @@
     "legend": {
       "labelColor": "#C5C6C7",
       "titleColor": "#C5C6C7",
-      "labelFontSize": 13
+      "labelFontSize": 18,
+      "titleFontSize": 20
     },
     "title": {
       "color": "#C5C6C7",
