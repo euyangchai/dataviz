@@ -56,7 +56,7 @@
         }
         },
       "mark": {"type": "point", "shape": "square", "filled": true},
-      "height": 300,
+      "height": 400,
       "width": 750,
       "encoding": {
         "x": {
@@ -86,7 +86,7 @@
       ],
       "hconcat": [
         {
-          "width": 50,
+          "width": 220,
           "title": "Player Name",
           "mark": "text",
           "height": 200,
@@ -96,7 +96,7 @@
           }
         },
         {
-          "width": 50,
+          "width": 100,
           "title": "Rating (out of 100)",
           "mark": "text",
           "height": 200,
@@ -106,7 +106,7 @@
           }
         },
         {
-          "width": 50,
+          "width": 100,
           "title": "Weekly Wage (€)",
           "mark": "text",
           "height": 200,
