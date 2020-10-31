@@ -97,16 +97,6 @@
         },
         {
           "width": 50,
-          "title": "Rating (out of 100)",
-          "mark": "text",
-          "height": 300,
-          "encoding": {
-            "text": {"field": "Overall", "type": "nominal"},
-            "y": {"field": "row_number", "type": "ordinal", "axis": null}
-          }
-        },
-        {
-          "width": 50,
           "title": "Weekly Wage (€)",
           "mark": "text",
           "height": 300,
