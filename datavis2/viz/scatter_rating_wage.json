@@ -86,7 +86,7 @@
       ],
       "hconcat": [
         {
-          "width": 100,
+          "width": 50,
           "title": "Player Name",
           "mark": "text",
           "height": 300,
