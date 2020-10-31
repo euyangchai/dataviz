@@ -45,7 +45,7 @@
     {"filter": "Position_Selection == null || datum.Position == Position_Selection"}
   ],
 
-  "hconcat": [
+  "vconcat": [
     {
       "selection": {
         "brush": {"type": "interval"},
@@ -82,14 +82,14 @@
       "transform": [
         {"filter": {"selection": "brush"}},
         {"window": [{"op": "rank", "as": "rank"}]},
-        {"filter": {"field": "rank", "lt": 10}}
+        {"filter": {"field": "rank", "lt": 6}}
       ],
       "hconcat": [
         {
           "width": 50,
           "title": "Player Name",
           "mark": "text",
-          "height": 300,
+          "height": 200,
           "encoding": {
             "text": {"field": "Name", "type": "nominal"},
             "y": {"field": "row_number", "type": "ordinal", "axis": null}
@@ -97,9 +97,19 @@
         },
         {
           "width": 50,
+          "title": "Rating (out of 100)",
+          "mark": "text",
+          "height": 200,
+          "encoding": {
+            "text": {"field": "Overall", "type": "nominal"},
+            "y": {"field": "row_number", "type": "ordinal", "axis": null}
+          }
+        },
+        {
+          "width": 50,
           "title": "Weekly Wage (€)",
           "mark": "text",
-          "height": 300,
+          "height": 200,
           "encoding": {
             "text": {"field": "Wage", "type": "nominal", "format": ".1s"},
             "y": {"field": "row_number", "type": "ordinal", "axis": null}
@@ -136,6 +146,9 @@
     "title": {
       "color": "#C5C6C7",
       "fontSize": 18
+    },
+    "concat": {
+      "spacing": 30
     }
   }
 }
